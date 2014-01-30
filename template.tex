@@ -1,0 +1,28 @@
+\documentclass{article}
+
+\include{customizations}
+
+\begin{document}
+
+\title{\LaTeX~ Template}
+\author{Atanas Atanasov}
+\date{}
+
+\maketitle
+
+\section{Introduction}
+\label{S:introduction}
+
+This is a simple template useful for starting LaTeX documents. All package includes and additional commands are defined in \texttt{customizations.tex}. Reading through it will help you write more efficiently. A lot of the custom commands are aimed at mathematcal writing, but they can be easily changed to suit different needs. Please make sure to copy \texttt{customizations.tex} along with any documents derived from this template.
+
+\nocite{*}
+
+\bibliographystyle{amsplain.bst}
+\bibliography{template}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "template"
+%%% End: 
