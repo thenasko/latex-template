@@ -24,6 +24,3 @@ bibtex template
 pdflatex template.tex
 ```
 If not using a bibliography, the first two commands suffice.
-
-TODO:
-* Make a pre-commit hook using `latexmk`
