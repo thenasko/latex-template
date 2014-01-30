@@ -58,10 +58,14 @@
 \usepackage{bm}
 \usepackage{mathrsfs}
 \usepackage{booktabs}
-\usepackage{leftidx}
-%\usepackage{youngtab}
-%\newcommand{\ysp}{\textrm{}}
-\usepackage{mathdots}
+%\usepackage{leftidx}
+\usepackage[vcentermath]{youngtab}
+\newcommand{\ysp}{\textrm{}}
+% \usepackage{mathdots}
+% \usepackage[inline]{showlabels}
+\usepackage[final]{showlabels}
+\usepackage[capitalize,nameinlink]{cleveref}
+%\usepackage{sagetex}
 
 
 %% Fonts
@@ -233,13 +237,12 @@
 \renewcommand{\b}{\ensuremath{\mathfrak{b}}}
 \renewcommand{\c}{\ensuremath{\mathfrak{c}}}
 \newcommand{\g}{\ensuremath{\mathfrak{g}}}
-%\newcommand{\h}{\ensuremath{\mathfrak{h}}}
-\newcommand{\h}{\ensuremath{\mathrm{h}}}
+% \newcommand{\h}{\ensuremath{\mathfrak{h}}}
+\newcommand{\h}{\mathop{\textrm{h}}\nolimits}
 \newcommand{\m}{\ensuremath{\mathfrak{m}}}
 \newcommand{\n}{\ensuremath{\mathfrak{n}}}
 \renewcommand{\o}{\ensuremath{\mathfrak{o}}}
-%\newcommand{\p}{\ensuremath{\mathfrak{p}}}
-\newcommand{\p}{\ensuremath{\mathrm{p}}}
+\newcommand{\p}{\ensuremath{\mathfrak{p}}}
 \newcommand{\q}{\ensuremath{\mathfrak{q}}}
 \renewcommand{\r}{\ensuremath{\mathfrak{r}}}
 \newcommand{\s}{\ensuremath{\mathfrak{s}}}
@@ -278,9 +281,8 @@
 \DeclareMathOperator{\Ann}{Ann}
 \DeclareMathOperator{\Ass}{Ass}
 \DeclareMathOperator{\Frac}{Frac}
-\DeclareMathOperator{\Def}{Def}
-\DeclareMathOperator{\Obs}{Obs}
 \DeclareMathOperator{\Homc}{\mathcal{H}om}
+\DeclareMathOperator{\Extc}{\mathcal{E}xt}
 %\DeclareMathOperator{\cl}{cl}
 \DeclareMathOperator{\cp}{cp}
 \DeclareMathOperator{\id}{id}
