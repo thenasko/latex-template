@@ -28,7 +28,7 @@
     bindingoffset=0in
   ]{geometry}
   \usepackage[pdftex,final]{graphicx}
-  \usepackage{psfragx}
+  %\usepackage{psfragx}
 \else
   \usepackage[
     dvips,
@@ -39,7 +39,7 @@
     bindingoffset=0in
   ]{geometry}
   \usepackage[dvips,final]{graphicx}
-  \usepackage{psfragx}
+  %\usepackage{psfragx}
 \fi
 \usepackage{indentfirst}
 \usepackage{suffix}
@@ -64,7 +64,7 @@
 % \usepackage{mathdots}
 % \usepackage[inline]{showlabels}
 \usepackage[final]{showlabels}
-\usepackage[capitalize,nameinlink]{cleveref}
+\usepackage[capitalize,nameinlink,noabbrev]{cleveref}
 %\usepackage{sagetex}
 
 
@@ -111,32 +111,28 @@
 \newtheorem{fact}[equation]{Fact}
 \newtheorem{warning}[equation]{Warning}
 
-\newenvironment{claim}[1][Claim.]{\begin{trivlist}
-\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
-\newenvironment{claim-mild}[1][Claim.]{{\bfseries #1} \hskip 0.2\labelsep}{}
-
+%% Names theorem environment
 \newtheorem*{namedtheorem}{\theoremname}
 \newcommand{\theoremname}{}
 \newenvironment{named}[1]{\renewcommand{\theoremname}{#1}\begin{namedtheorem}}{\end{namedtheorem}}
   
-% \newcounter{cnt_exercise}
-% \setcounter{cnt_exercise}{1}
-% \newenvironment{exercise}[1][Exercise]{\begin{trivlist}
-% \item[\hskip \labelsep {\bfseries #1 \arabic{cnt_exercise}}]}{\addtocounter{cnt_exercise}{1} \end{trivlist}}
-% \newenvironment{solution}[1][Solution.]{\begin{trivlist}
-% \item[\hskip \labelsep {\emph{#1}}]}{\qed \end{trivlist}}
-% \newenvironment{question}[1][Question.]{\begin{trivlist}
-% \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+%% Problem-set commands (also useful for worksheets, exams, etc.)
+% \newcounter{cnt_problem}
+% \setcounter{cnt_problem}{1}
+% \newcommand\problem[1][Problem]{\vspace{0.15in} \noindent {\hskip \labelsep {\bfseries #1 \arabic{cnt_problem}}} \addtocounter{cnt_problem}{1}}
+% \WithSuffix\newcommand\problem*[1]{\vspace{0.15in} \noindent {\hskip \labelsep {\bfseries #1}}}
 
-\newcounter{cnt_problem}
-\setcounter{cnt_problem}{1}
-\newcommand\problem[1][Problem]{\vspace{0.15in} \noindent {\hskip \labelsep {\bfseries #1 \arabic{cnt_problem}}} \addtocounter{cnt_problem}{1}}
-\WithSuffix\newcommand\problem*[1]{\vspace{0.15in} \noindent {\hskip \labelsep {\bfseries #1}}}
+\newenvironment{claim}[1][Claim.]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{claim-mild}[1][Claim.]{{\bfseries #1} \hskip 0.2\labelsep}{}
 
-\floatstyle{plain}
-\newfloat{figure}{thp}{}
-\floatname{figure}{Figure}
 
+% \floatstyle{plain}
+% \newfloat{figure}{thp}{}
+% \floatname{figure}{Figure}
+% \numberwithin{figure}{section}
+
+%% Enumerate/itemize environments
 \newenvironment{itemize_packed}{
 \\[-20pt]
 \begin{itemize}
@@ -163,20 +159,24 @@
 
 \newcommand{\topcell}[1]{\vtop{\null\hbox{#1}}}
 
+%% TODO command: renders only of \showtodos is defined
 \ifthenelse{\isundefined{\showtodos}}{
   \newcommand{\todo}[1]{}
 }{
   \newcommand{\todo}[1]{#1}
 }
-% TODO: Add environment
 
 
 %% Special font symbols
+
+%% Bold letters: blackboard or regular bold font depending on the
+%% \boldsymbols command.
 \ifthenelse{\isundefined{\boldsymbols}}{
   \newcommand{\mathbbf}[1]{\mathbb{#1}}
 }{
   \newcommand{\mathbbf}[1]{\mathbf{#1}}
 }
+
 \newcommand{\Abb}{\ensuremath{\mathbbf{A}}}
 \newcommand{\Cbb}{\ensuremath{\mathbbf{C}}}
 \newcommand{\Fbb}{\ensuremath{\mathbbf{F}}}
@@ -193,6 +193,7 @@
 \newcommand{\Vbb}{\ensuremath{\mathbbf{V}}}
 \newcommand{\Zbb}{\ensuremath{\mathbbf{Z}}}
 
+%% Calligraphic letters
 \newcommand{\Ac}{\ensuremath{\mathcal{A}}}
 \newcommand{\Bc}{\ensuremath{\mathcal{B}}}
 \newcommand{\Cc}{\ensuremath{\mathcal{C}}}
@@ -217,6 +218,8 @@
 \newcommand{\Vc}{\ensuremath{\mathcal{V}}}
 \newcommand{\Wc}{\ensuremath{\mathcal{W}}}
 \newcommand{\Xc}{\ensuremath{\mathcal{X}}}
+
+%% Script letters
 \newcommand{\As}{\ensuremath{\mathscr{A}}}
 \newcommand{\Bs}{\ensuremath{\mathscr{B}}}
 \newcommand{\Cs}{\ensuremath{\mathscr{C}}}
@@ -231,14 +234,13 @@
 \newcommand{\Ws}{\ensuremath{\mathscr{W}}}
 % \newcommand{\Xs}{\ensuremath{\mathscr{X}}}
 \newcommand{\Zs}{\ensuremath{\mathscr{Z}}}
-\newcommand{\Cch}{\ensuremath{\check{C}}}
-\newcommand{\Hch}{\ensuremath{\check{H}}}
+
+%% Fraktur letters
 \renewcommand{\a}{\ensuremath{\mathfrak{a}}}
 \renewcommand{\b}{\ensuremath{\mathfrak{b}}}
 \renewcommand{\c}{\ensuremath{\mathfrak{c}}}
 \newcommand{\g}{\ensuremath{\mathfrak{g}}}
 % \newcommand{\h}{\ensuremath{\mathfrak{h}}}
-\newcommand{\h}{\mathop{\textrm{h}}\nolimits}
 \newcommand{\m}{\ensuremath{\mathfrak{m}}}
 \newcommand{\n}{\ensuremath{\mathfrak{n}}}
 \renewcommand{\o}{\ensuremath{\mathfrak{o}}}
@@ -248,13 +250,18 @@
 \newcommand{\s}{\ensuremath{\mathfrak{s}}}
 \renewcommand{\t}{\ensuremath{\mathfrak{t}}}
 \renewcommand{\u}{\ensuremath{\mathfrak{u}}}
+
+%% Miscellaneous
+\newcommand{\Cch}{\ensuremath{\check{C}}}
+\newcommand{\Hch}{\ensuremath{\check{H}}}
 \renewcommand{\d}{\ensuremath{\partial}}
 
 
 %% Operators
-\renewcommand{\Im}{\mathop{\textrm{Im}}\nolimits}
-\renewcommand{\Re}{\mathop{\textrm{Re}}\nolimits}
-\renewcommand{\H}{\mathop{\textrm{H}}\nolimits}
+\replacecommand{\Im}{\mathop{\textrm{Im}}\nolimits}
+\replacecommand{\Re}{\mathop{\textrm{Re}}\nolimits}
+\replacecommand{\H}{\mathop{\textrm{H}}\nolimits}
+\replacecommand{\h}{\mathop{\textrm{h}}\nolimits}
 \DeclareMathOperator{\pr}{pr}
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\Tr}{Tr}
@@ -370,6 +377,7 @@
 \DeclareMathOperator{\arcsech}{arcsech}
 \DeclareMathOperator{\arccsch}{arccsch}
 
+%% Useful subscripts: opposite, reduced, singularities, etc.
 \newcommand{\op}{\textrm{op}}
 \newcommand{\red}{\textrm{red}}
 \newcommand{\sing}{\textrm{sing}}
@@ -379,6 +387,7 @@
 \newcommand{\cart}{\textrm{cart}}
 \newcommand{\eff}{\textrm{eff}}
 
+%% Various categories
 \newcommand{\Set}{\textrm{\textbf{Set}}}
 \newcommand{\EqRel}{\textrm{\textbf{EqRel}}}
 \newcommand{\Groupoid}{\textrm{\textbf{Groupoid}}}
@@ -392,7 +401,11 @@
 \newcommand{\AffMor}{\textrm{\textbf{AffMor}}}
 
 
+%% Exterior power
 \newcommand{\extp}{\textstyle\bigwedge\nolimits}
+
+%% The typical modulo commands leave too much space before, so we
+%% replace them.
 % \newcommand{\dmod}{\textrm{-}\textbf{mod}}
 \newcommand{\dmod}{\textrm{-mod}}
 \renewcommand{\mod}[1]{\ensuremath{\;\textrm{mod }{#1}}}
@@ -411,9 +424,11 @@
 \newcommand{\larr}{\ifinner\leftarrow\else\longleftarrow\fi}
 \newcommand{\Larr}{\ifinner\Leftarrow\else\Longleftarrow\fi}
 \newcommand{\hrarr}{\hookrightarrow}
-\newcommand{\xrarr}{\xrightarrow}
 \newcommand{\hlarr}{\hookleftarrow}
+\newcommand{\xrarr}{\xrightarrow}
 \newcommand{\xlarr}{\xleftarrow}
+\newcommand{\drarr}{\dashrightarrow}
+\newcommand{\dlarr}{\dashleftarrow}
 \newcommand{\acts}{\curvearrowright}
 \newcommand{\slashsim}{/\hspace{-4pt}\sim}
 % \renewcommand{\/}{/\hspace{-3pt}/}
@@ -429,7 +444,15 @@
   \fi
 }
 
-% Hypenations
+
+%% Line spacing
+% \usepackage{setspace}
+% \doublespacing
+%% or:
+% \onehalfspacing
+
+
+%% Hypenations
 
 \hyphenation{Groth-en-dieck}
 
@@ -440,11 +463,14 @@
 \renewcommand{\epsilon}{\varepsilon}
 
 
-%% \setcounter{tocdepth}{2}
-%% \numberwithin{subsection}{section}
-%% \numberwithin{section}{chapter}
+%% Useful if typing in a book-like document class.
+% \setcounter{tocdepth}{2}
+% \numberwithin{subsection}{section}
+% \numberwithin{section}{chapter}
 
-%% \renewcommand{\chaptername}{Chapter}
+%% Use if you want to change the name of a "Chapter". For example, if
+%% typing notes it may be useful to replace with "Lecture" instead.
+% \renewcommand{\chaptername}{Chapter}
 
 
 %%% Local Variables: 
