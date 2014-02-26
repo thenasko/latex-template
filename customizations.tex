@@ -12,10 +12,10 @@
 
 %% Packages
 \usepackage{amsmath, amsthm, amssymb}
-%% \usepackage{mathabx} %% Use only if necessary (required for \widecheck)
+% \usepackage{mathabx} %% Use only if necessary (required for \widecheck)
 \usepackage{hyperref}
 \usepackage{array}
-%\usepackage{fullpage}
+% \usepackage{fullpage}
 \usepackage{ifthen}
 \usepackage{ifpdf}
 \ifpdf
@@ -27,8 +27,7 @@
     margin=1in,
     bindingoffset=0in
   ]{geometry}
-  \usepackage[pdftex,final]{graphicx}
-  %\usepackage{psfragx}
+  \usepackage[pdftex,final]{graphicx}  
 \else
   \usepackage[
     dvips,
@@ -39,8 +38,8 @@
     bindingoffset=0in
   ]{geometry}
   \usepackage[dvips,final]{graphicx}
-  %\usepackage{psfragx}
 \fi
+% \usepackage{psfragx}
 \usepackage{indentfirst}
 \usepackage{suffix}
 \usepackage{float}
@@ -58,22 +57,22 @@
 \usepackage{bm}
 \usepackage{mathrsfs}
 \usepackage{booktabs}
-%\usepackage{leftidx}
+% \usepackage{leftidx}
 \usepackage[vcentermath]{youngtab}
 \newcommand{\ysp}{\textrm{}}
 % \usepackage{mathdots}
 % \usepackage[inline]{showlabels}
 \usepackage[final]{showlabels}
 \usepackage[capitalize,nameinlink,noabbrev]{cleveref}
-%\usepackage{sagetex}
+% \usepackage{sagetex}
 
 
 %% Fonts
 
 %% Palatino fonts
-%\usepackage[sc]{mathpazo}
-%\linespread{1.05}         % Palatino needs more leading (space between lines)
-%\usepackage[T1]{fontenc}
+% \usepackage[sc]{mathpazo}
+% \linespread{1.05}         % Palatino needs more leading (space between lines)
+% \usepackage[T1]{fontenc}
 
 %% MinionPro fonts
 \IfFileExists{MinionPro.sty}{\usepackage{MinionPro}}{}
@@ -88,7 +87,7 @@
 %% Environments
 
 \theoremstyle{plain}
-%\numberwithin{equation}{section}
+% \numberwithin{equation}{section}
 \newtheorem{theorem}[equation]{Theorem}
 \newtheorem{proposition}[equation]{Proposition}
 \newtheorem{lemma}[equation]{Lemma}
@@ -106,7 +105,7 @@
 
 \theoremstyle{remark}
 \newtheorem{example}[equation]{Example}
-%\newtheorem{hint}[equation]{Hint}
+% \newtheorem{hint}[equation]{Hint}
 \newtheorem{remark}[equation]{Remark}
 \newtheorem{fact}[equation]{Fact}
 \newtheorem{warning}[equation]{Warning}
@@ -290,7 +289,7 @@
 \DeclareMathOperator{\Frac}{Frac}
 \DeclareMathOperator{\Homc}{\mathcal{H}om}
 \DeclareMathOperator{\Extc}{\mathcal{E}xt}
-%\DeclareMathOperator{\cl}{cl}
+% \DeclareMathOperator{\cl}{cl}
 \DeclareMathOperator{\cp}{cp}
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\ev}{ev}
