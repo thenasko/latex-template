@@ -6,8 +6,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Customizations styles
+
 % \newcommand{\boldsymbols}{}{}
-\newcommand{\showtodos}{}
+% \newcommand{\draft}{}
+% \newcommand{\showtodos}{}
 
 
 %% Packages
@@ -24,29 +26,28 @@
     letterpaper,
     includeheadfoot,
     centering=true,
-    margin=1in,
+%    margin=1in,
     bindingoffset=0in
   ]{geometry}
-  \usepackage[pdftex,final]{graphicx}  
+  \usepackage[pdftex,final]{graphicx}
+  %\usepackage{psfragx}
 \else
   \usepackage[
     dvips,
     letterpaper,
     includeheadfoot,
     centering=true,
-    margin=1in,
+%    margin=1in,
     bindingoffset=0in
   ]{geometry}
   \usepackage[dvips,final]{graphicx}
+  %\usepackage{psfragx}
 \fi
-% \usepackage{psfragx}
 \usepackage{indentfirst}
-\usepackage{suffix}
-\usepackage{float}
 \usepackage{enumerate}
-% \usepackage{ifthen}
+% \usepackage{suffix}
+% \usepackage{float}
 % \usepackage{listings}
-% \usepackage{hyperref}
 \usepackage[all,2cell,knot]{xy}
 \UseAllTwocells
 \SilentMatrices
@@ -61,10 +62,15 @@
 \usepackage[vcentermath]{youngtab}
 \newcommand{\ysp}{\textrm{}}
 % \usepackage{mathdots}
-% \usepackage[inline]{showlabels}
-\usepackage[final]{showlabels}
 \usepackage[capitalize,nameinlink,noabbrev]{cleveref}
 % \usepackage{sagetex}
+
+%% Show labels depending on the definition of \draft
+\ifthenelse{\isundefined{\draft}}{
+  \usepackage[final]{showlabels}  
+}{
+  \usepackage[inline]{showlabels}
+}
 
 
 %% Fonts
@@ -381,6 +387,7 @@
 \newcommand{\red}{\textrm{red}}
 \newcommand{\sing}{\textrm{sing}}
 \newcommand{\alg}{\textrm{alg}}
+\newcommand{\sm}{\textrm{sm}}
 \newcommand{\cl}{\textrm{cl}}
 \newcommand{\et}{\textrm{\'et}}
 \newcommand{\cart}{\textrm{cart}}

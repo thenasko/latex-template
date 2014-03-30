@@ -1,9 +1,9 @@
 latex-template
 ==============
 
-This is a simple template useful for starting LaTeX documents. All package includes and additional commands are defined in `customizations.tex`. Reading through it will help you write more efficiently. A lot of the custom commands are aimed at mathematcal writing, but they can be easily changed to suit different needs. Please make sure to copy `customizations.tex` along with any documents derived from this template.
+This is a simple template useful for starting LaTeX documents. All package includes and additional commands are defined in `customizations.sty`. Reading through it will help you write more efficiently. A lot of the custom commands are aimed at mathematcal writing, but they can be easily changed to suit different needs. Please make sure to copy `customizations.sty` along with any documents derived from this template.
 
-Both `template.tex` and `customizations.tex` include auctex-specific footers.
+Both `template.tex` and `customizations.sty` include auctex-specific footers.
 ```
 %%% Local Variables: 
 %%% mode: latex
